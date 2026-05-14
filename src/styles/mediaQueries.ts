@@ -1,4 +1,4 @@
-import {css} from "styled-components";
+import {css, type Interpolation} from "styled-components";
 
 const sizes={
     mobile: '500px',
@@ -7,18 +7,18 @@ const sizes={
 };
 
 export const media={
-    mobile: (styles: ReturnType<typeof css>)=>css`
+    mobile: <T extends object>(...styles: Interpolation<T>[])=>css<T>`
     @media (max-width: ${sizes.mobile}){
         ${styles}
     }
     `,
-    tablet: (styles:ReturnType<typeof css>)=>css`
-    @media(min-width:${sizes.tablet}){
+    tablet:<T extends object>(...styles: Interpolation<T>[])=>css<T>`
+    @media(min-width:${sizes.tablet})and (max-width: 1199px){
         ${styles}
     }
     `,
 
-    desktop: (styles:ReturnType<typeof css>)=>css`
+    desktop:<T extends object>(...styles: Interpolation<T>[])=>css<T>`
     @media(min-width:${sizes.desktop}){
         ${styles}
     }

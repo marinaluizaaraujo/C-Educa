@@ -1,5 +1,33 @@
-import 'styled-components'
-import type { defaultTheme } from "../styles/theme/default";
+import "styled-components";
 
+declare module "styled-components" {
+    export interface DefaultTheme {
+        colors: {
+            background: string;
+            backgroundNav: string;
+            linha: string;
+            textPrimary: string;
+            textSecondary: string;
+        };
 
-type ThemeType = typeof defaultTheme
+        fontFamily: {
+            primary: string;
+        };
+
+        fontSize: {
+            title:{
+                mobile: string;
+                tablet: string;
+                desktop: string;    
+            }
+            paragraph: {
+                mobile: string;
+                tablet: string;
+                desktop: string;
+            }
+        };
+
+        sizeFontes: Record<string, number>;
+        radius: Record<string, number>;
+    }
+}
