@@ -1,4 +1,5 @@
-export interface TextProps{
-    color?: "button" | "text" | "aroeira" | "footerAroeira" | "textFooter" | "404" | "link" | "subTexto"
-    type: "Tertiary" | "Primary" | "Secondary"
+export interface TextProps {
+    color?: "textPrimary" | "textSecundary" | "textTertiary"
+    size?: "title" | "paragraph" | "button"
+    type: "Primary"
 }

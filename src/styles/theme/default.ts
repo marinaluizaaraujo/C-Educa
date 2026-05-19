@@ -1,14 +1,47 @@
 export const defaultTheme = {
-        colors:{
-
+    colors: {
+        "background": "#EBEBEB",
+        "backgroundNav": "#2F369C",
+        "backgroundButton": "#F9862F",
+        "linha": "#000763",
+        "textPrimary": "#FFFFFF",
+        "textSecondary": "#000000",
+        "textTertiary": "#020A6F",
     },
-    fontFamily:{
-
+    fontFamily: {
+        "primary": "Bpmf Huninn",
     },
-    sizeFontes:{
-
+    fontSize: {
+        title: {
+            mobile: "24px",
+            tablet: "25px",
+            desktop: "40px",
+        },
+        paragraph: {
+            mobile: "16px",
+            tablet: "18px",
+            desktop: "30px",
+        },
+        button: {
+            mobile: "14px",
+            tablet: "16px",
+            desktop: "15px",
+        }
     },
-    radius:{
-
+    borderRadius: {
+        button: "8px",
+        card: "16px",
+        nav: "0 10px 0 0",
     },
-}as const
+    widthButton: {
+        small: "5.938rem",
+        medium: "14.125rem",
+        large: "20.063rem",
+    },
+    heightButton: {
+        small: "2.063rem",
+        medium: "2.75rem",
+        large: "4.5rem",
+    }
+
+} as const

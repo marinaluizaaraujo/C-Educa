@@ -1,3 +1,3 @@
-export interface ButtonProps{
-    color?: ""
+export interface ButtonProps {
+    size?: "small" | "medium" | "large"
 }
