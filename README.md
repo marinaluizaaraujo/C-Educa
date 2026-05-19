@@ -1,73 +1,61 @@
-# React + TypeScript + Vite
+# 🏫 C'Educa
+> Sistema de gestão escolar desenvolvido para o Educandário, apoiando o desenvolvimento socioemocional e a inclusão de jovens no mercado de trabalho através do Programa Jovem Aprendiz.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
+## 📝 Sobre o Projeto
 
-Currently, two official plugins are available:
+ O **C'Educa** é uma plataforma de gestão escolar idealizada para atender às necessidades específicas do **Educandário** — uma Organização Social sem fins econômicos e lucrativos. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Mais do que uma ferramenta administrativa tradicional, o sistema foi desenhado para dar suporte digital ao **Programa Jovem Aprendiz:** Atuando como uma ponte tecnológica para gerenciar a formação, o acesso e a mediação de adolescentes e jovens integrados ao mundo do trabalho.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Funcionalidades
 
-## Expanding the ESLint configuration
+- [x] **Área do Aluno (Construção de Currículos):** Permite que os estudantes editem e atualizem seus currículos diretamente pela plataforma, garantindo dados sempre recentes para otimizar o envio e a integração com as empresas parceiras.
+- [x] Navegação dinâmica entre múltiplas páginas com rotas protegidas/públicas.
+- [x] Componentização avançada e estilização isolada (Scoped CSS).
+- [x] Tipagem estática em toda a aplicação para maior segurança no desenvolvimento.
+- [x] Interface limpa e moderna utilizando pacote de ícones vetoriais.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tecnologias e Ferramentas
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Core & Interface
+- **[React](https://react.dev/)** — Biblioteca Javascript para construção de interfaces.
+- **[TypeScript](https://www.typescriptlang.org/)** — Superset JavaScript que adiciona tipagem estática ao código.
+- **[Styled Components](https://styled-components.com/)** — Biblioteca para estilização utilizando a metodologia de CSS-in-JS.
+- **[React Router DOM](https://reactrouter.com/)** — Gerenciamento de rotas e navegação da aplicação SPA.
+- **[Phosphor Icons](https://phosphoricons.com/)** — Biblioteca de ícones flexível e consistente.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Ferramentas de Desenvolvimento (Dev)
+- **[Vite](https://vitejs.dev/)** — Ferramenta de build rápida para o ecossistema Front-end.
+- **[ESLint](https://eslint.org/)** — Ferramenta de análise de código estático para identificar padrões e garantir a qualidade do código.
+---
+
+## 📦 Como rodar o projeto localmente
+
+### Pré-requisitos
+Antes de começar, certifique-se de ter instalado em sua máquina o **[Git](https://git-scm.com)** e o **[Node.js](https://nodejs.org/)** (recomendado versão LTS).
+
+### Passo a passo
+
+```bash
+# 1. Clone este repositório
+$ git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+
+# 2. Acesse a pasta do projeto
+$ cd seu-repositorio
+
+# 3. Instale as dependências
+$ npm install
+# ou se usar yarn: yarn
+
+# 4. Inicie o servidor de desenvolvimento
+$ npm run dev
+# ou se usar yarn: yarn dev
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+> 💡 **Dica:** Ao abrir o projeto no VS Code, aceite a sugestão de instalar as extensões recomendadas contidas na pasta `.vscode` para ter uma melhor experiência de desenvolvimento.
