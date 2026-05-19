@@ -5,9 +5,11 @@ declare module "styled-components" {
         colors: {
             background: string;
             backgroundNav: string;
+            backgroundButton: string;
             linha: string;
             textPrimary: string;
             textSecondary: string;
+            textTertiary: string;
         };
 
         fontFamily: {
@@ -25,9 +27,13 @@ declare module "styled-components" {
                 tablet: string;
                 desktop: string;
             }
+            Button: {
+                mobile: string;
+                tablet: string;
+                desktop: string;
+            }
         };
 
-        sizeFontes: Record<string, number>;
         radius: Record<string, number>;
     }
 }
