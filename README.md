@@ -43,7 +43,7 @@ Antes de começar, certifique-se de ter instalado em sua máquina o **[Git](http
 
 ```bash
 # 1. Clone este repositório
-$ git clone [https://github.com/marinaluizaaraujo/C-Educa.git](https://github.com/marinaluizaaraujo/C-Educa)
+$ git clone [https://github.com/marinaluizaaraujo/C-Educa.git]
 
 # 2. Acesse a pasta do projeto
 $ cd C_Educa
