@@ -1,9 +1,10 @@
-import { Nav } from "../../components/Nav"
+// import { Nav } from "../../components/Nav"
 
 export function Home(){
     return(
         <>
-        <Nav/>
+        {/* <Nav/> */}
+        <h1>oi</h1>
         </>
     )
 }

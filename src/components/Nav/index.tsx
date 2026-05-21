@@ -1,9 +1,14 @@
 import Logo from "../../assets/logo.png"
-import { Outlet } from "react-router-dom";
-import { Box, Container, IconAjuda, IconTurmas, LinkAjuda, Navgation, NavList, PaginaLink, Stack } from "./styles";
+import { Box, Container, IconAjuda, LinkAjuda, Navgation, NavList, PaginaLink, Stack } from "./styles";
 import { Text } from "../Text/styles";
+import type { UserRole } from "./types";
+import { menus } from "./menus";
 
-export function Nav() {
+type Props = {
+    role: UserRole;
+};
+
+export function Nav({ role }: Props) {
     return (
         <Container>
             <Box>
@@ -12,30 +17,21 @@ export function Nav() {
             </Box>
             <Navgation>
                 <NavList>
-                    <PaginaLink to="/turmas">
-                        <li>
-                            <IconTurmas />
-                            <Text type="Primary">Turmas</Text>
-                        </li>
-                    </PaginaLink>
-                    <PaginaLink to="/turmas">
-                        <li>
-                            <IconTurmas />
-                            <Text type="Primary">Turmas</Text>
-                        </li>
-                    </PaginaLink>
-                    <PaginaLink to="/turmas">
-                        <li>
-                            <IconTurmas />
-                            <Text type="Primary">Turmas</Text>
-                        </li>
-                    </PaginaLink>
-                    <PaginaLink to="/turmas">
-                        <li>
-                            <IconTurmas />
-                            <Text type="Primary">Turmas</Text>
-                        </li>
-                    </PaginaLink>
+                    {menus[role].map((menu) => {
+                        const Icon = menu.icon;
+                        return (
+                            <PaginaLink
+                                key={menu.name}
+                                to={menu.path}
+                                end={menu.path === `/${role}`}
+                            >
+                                <li>
+                                    <Icon />
+                                    <Text type="Primary">{menu.name}</Text>
+                                </li>
+                            </PaginaLink>
+                        )
+                    })}
                 </NavList>
             </Navgation>
             <Stack>
@@ -46,7 +42,6 @@ export function Nav() {
                     </span>
                 </LinkAjuda>
             </Stack>
-            <Outlet />
         </Container>
     )
 }

@@ -1,13 +1,14 @@
-import { ChalkboardTeacherIcon, QuestionIcon } from "@phosphor-icons/react";
-import { Link } from "react-router-dom";
+import { BuildingOfficeIcon, ChalkboardTeacherIcon, QuestionIcon } from "@phosphor-icons/react";
+import { Link, NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { media } from "../../styles/mediaQueries";
+import { Article, Briefcase, House, Person, UsersThree } from "phosphor-react";
 
 export const Container = styled.aside`
 background-color: ${({ theme }) => theme.colors.backgroundNav};
 
 ${media.tablet(css`
-height: 100vh;
+min-height: 100vh;
 width: 20vw;
 border-radius: 0 10px 10px 0;
 flex-direction: column;
@@ -15,7 +16,7 @@ justify-content: space-between;
 `)}
 
 ${media.desktop(css`
-height: 100vh;
+min-height: 100vh;
 width: 20vw;
 display: flex;
 flex-direction: column;
@@ -77,15 +78,15 @@ flex-direction: column;
 `)}
 
 ${media.desktop(css`
-/* margin-top: 3rem; */
-height: 50vh;
+margin-top: 3rem;
+min-height: 65vh;
 display: flex;
 flex-direction: column;
 `)}
 
 `
 
-export const PaginaLink = styled(Link)`
+export const PaginaLink = styled(NavLink)`
 text-decoration: none;
 list-style: none;
 transition: 0.8s;
@@ -109,7 +110,19 @@ align-items: center;
 
 &:hover{
     background-color: ${({ theme }) => theme.colors.linha};
-    color: pink;
+}
+
+&.active{
+    background-color: ${({ theme }) => theme.colors.linha};
+    border-right: 5px solid ${({ theme }) => theme.colors.backgroundButton};
+
+    span{
+        color: ${({ theme }) => theme.colors.backgroundButton};
+    }
+
+    svg{
+        color: ${({ theme }) => theme.colors.backgroundButton};
+    }
 }
 `
 
@@ -128,7 +141,6 @@ ${media.desktop(css`
     li{
         padding-bottom:1rem ;
         padding-top:1rem ;
-        /* width: 100%; */
         display: flex;
         align-items: center;
         gap: 0.8rem;
@@ -144,7 +156,6 @@ text-decoration: none;
 export const Stack = styled.div`
 ${media.tablet(css`
 padding-top: 1rem;
-/* padding-bottom:1.5rem ; */
 padding-left:0.8rem ;
 display: flex;
 flex-direction: row;
@@ -163,7 +174,7 @@ padding-top: 2rem;
 padding-bottom:1.5rem ;
 padding-left:1.3rem ;
 width: 100%;
-/* background-color: aqua; */
+
 span{
     display: flex;
     align-items: center;
@@ -188,6 +199,89 @@ height: 45px;
 `
 
 export const IconAjuda = styled(QuestionIcon)`
+color: ${({ theme }) => theme.colors.textPrimary};
+
+${media.tablet(css`
+width: 25px;
+height: 25px;
+`)}
+
+${media.desktop(css`
+width: 45px;
+height: 45px;
+`)}
+`
+export const IconPerfil = styled(Person)`
+color: ${({ theme }) => theme.colors.textPrimary};
+
+${media.tablet(css`
+width: 25px;
+height: 25px;
+`)}
+
+${media.desktop(css`
+width: 45px;
+height: 45px;
+`)}
+`
+
+export const IconHome = styled(House)`
+color: ${({ theme }) => theme.colors.textPrimary};
+
+${media.tablet(css`
+width: 25px;
+height: 25px;
+`)}
+
+${media.desktop(css`
+width: 45px;
+height: 45px;
+`)}
+`
+
+export const IconCurriculo = styled(Article)`
+color: ${({ theme }) => theme.colors.textPrimary};
+
+${media.tablet(css`
+width: 25px;
+height: 25px;
+`)}
+
+${media.desktop(css`
+width: 45px;
+height: 45px;
+`)}
+`
+
+export const IconGroup = styled(UsersThree)`
+color: ${({ theme }) => theme.colors.textPrimary};
+
+${media.tablet(css`
+width: 25px;
+height: 25px;
+`)}
+
+${media.desktop(css`
+width: 45px;
+height: 45px;
+`)}
+`
+
+export const IconEmpresas = styled(BuildingOfficeIcon)`
+color: ${({ theme }) => theme.colors.textPrimary};
+
+${media.tablet(css`
+width: 25px;
+height: 25px;
+`)}
+
+${media.desktop(css`
+width: 45px;
+height: 45px;
+`)}
+`
+
+export const IconVagas = styled(Briefcase)`
 color: ${({ theme }) => theme.colors.textPrimary};
 
 ${media.tablet(css`
