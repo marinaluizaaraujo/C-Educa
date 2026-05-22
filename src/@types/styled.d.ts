@@ -17,23 +17,39 @@ declare module "styled-components" {
         };
 
         fontSize: {
-            title:{
+
+            title: {
                 mobile: string;
                 tablet: string;
-                desktop: string;    
+                desktop: string;
             }
             paragraph: {
                 mobile: string;
                 tablet: string;
                 desktop: string;
             }
-            Button: {
+
+            button: {
                 mobile: string;
                 tablet: string;
                 desktop: string;
             }
         };
 
-        radius: Record<string, number>;
+        borderRadius: {
+            button: string;
+            card: string;
+            nav: string;
+        }
+        widthButton: {
+            small: string;
+            medium: string;
+            large: string;
+        },
+        heightButton: {
+            small: string;
+            medium: string;
+            large: string;
+        }
     }
 }

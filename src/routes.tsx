@@ -14,6 +14,7 @@ import Vagas from "./pages/Secretaria/Vagas";
 import Empresas from "./pages/Secretaria/Empresas";
 import Alunos from "./pages/Secretaria/Alunos";
 import ListaDeTurmas from "./pages/Secretaria/ListaDeTurmas";
+
 const router = createBrowserRouter([
     {
         path: "/",

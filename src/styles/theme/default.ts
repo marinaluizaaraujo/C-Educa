@@ -22,13 +22,26 @@ export const defaultTheme = {
             tablet: "18px",
             desktop: "30px",
         },
-        Button: {
+        button: {
             mobile: "14px",
             tablet: "16px",
-            desktop: "20px",
+            desktop: "15px",
         }
     },
-    radius: {
-
+    borderRadius: {
+        button: "8px",
+        card: "16px",
+        nav: "0 10px 0 0",
     },
+    widthButton: {
+        small: "5.938rem",
+        medium: "14.125rem",
+        large: "20.063rem",
+    },
+    heightButton: {
+        small: "2.063rem",
+        medium: "2.75rem",
+        large: "4.5rem",
+    }
+
 } as const

@@ -1,5 +1,6 @@
-export interface TextProps{
-    color?: "button" | "textPrimary" | "textSecundary" 
-    size?: "title" | "paragraph"
-    type: "Primary" 
+
+export interface TextProps {
+    color?: "textPrimary" | "textSecundary" | "textTertiary"
+    size?: "title" | "paragraph" | "button"
+    type: "Primary"
 }
