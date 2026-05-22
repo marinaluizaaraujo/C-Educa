@@ -17,6 +17,7 @@ declare module "styled-components" {
         };
 
         fontSize: {
+
             title: {
                 mobile: string;
                 tablet: string;
@@ -27,12 +28,14 @@ declare module "styled-components" {
                 tablet: string;
                 desktop: string;
             }
+
             button: {
                 mobile: string;
                 tablet: string;
                 desktop: string;
             }
         };
+
         borderRadius: {
             button: string;
             card: string;

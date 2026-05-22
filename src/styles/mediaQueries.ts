@@ -12,11 +12,13 @@ export const media = {
         ${styles}
     }
     `,
+
     tablet: <T extends object>(...styles: Interpolation<T>[]) => css<T>`
     @media(min-width:${sizes.tablet})and (max-width: 1199px){
         ${styles}
     }
     `,
+
 
     desktop: <T extends object>(...styles: Interpolation<T>[]) => css<T>`
     @media(min-width:${sizes.desktop}){
