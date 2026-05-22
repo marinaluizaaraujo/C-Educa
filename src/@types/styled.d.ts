@@ -6,10 +6,12 @@ declare module "styled-components" {
             background: string;
             backgroundNav: string;
             backgroundButton: string;
+            backgroundInput: string;
             linha: string;
             textPrimary: string;
             textSecondary: string;
             textTertiary: string;
+            textInput: string;
         };
 
         fontFamily: {
@@ -40,6 +42,7 @@ declare module "styled-components" {
             button: string;
             card: string;
             nav: string;
+            login: string;
         }
         widthButton: {
             small: string;

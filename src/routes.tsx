@@ -5,7 +5,7 @@ import { Aluno } from "./pages/Aluno";
 import Perfil from "./pages/Aluno/Perfil";
 import { AlunoLayout } from "./layouts/AlunoLayout";
 import { Professor } from "./pages/Professor";
-import ProfessorLayout from "./layouts/ProfessorLayout";    
+import ProfessorLayout from "./layouts/ProfessorLayout";
 import Turmas from "./pages/Professor/Turmas";
 import Anotacao from "./pages/Professor/Anotacao";
 import SecretariaLayout from "./layouts/SecretariaLayout";
@@ -14,6 +14,7 @@ import Vagas from "./pages/Secretaria/Vagas";
 import Empresas from "./pages/Secretaria/Empresas";
 import Alunos from "./pages/Secretaria/Alunos";
 import ListaDeTurmas from "./pages/Secretaria/ListaDeTurmas";
+import Curriculo from "./pages/Aluno/Curriculo";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path: "perfil",
                 element: <Perfil />
+            },
+            {
+                path: "curriculo",
+                element: <Curriculo />
             },
         ]
     },

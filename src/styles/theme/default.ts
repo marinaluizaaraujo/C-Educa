@@ -3,10 +3,12 @@ export const defaultTheme = {
         "background": "#EBEBEB",
         "backgroundNav": "#2F369C",
         "backgroundButton": "#F9862F",
+        "backgroundInput": "#F0F0F0",
         "linha": "#000763",
         "textPrimary": "#FFFFFF",
         "textSecondary": "#000000",
         "textTertiary": "#020A6F",
+        "textInput": "#AFAEAE",
     },
     fontFamily: {
         "primary": "Bpmf Huninn",
@@ -32,6 +34,7 @@ export const defaultTheme = {
         button: "8px",
         card: "16px",
         nav: "0 10px 0 0",
+        login: "50px",
     },
     widthButton: {
         small: "5.938rem",
