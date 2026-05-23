@@ -21,6 +21,7 @@ width: 20vw;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
+position: fixed;
 `)}
 
 `
