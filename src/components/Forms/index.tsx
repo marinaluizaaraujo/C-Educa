@@ -1,129 +1,131 @@
 
-import { FormContainer, FormGroup, FullWidth, Select } from "./styles";
+import { Container, FormContainer, Header, Select, Espaco, TitleContainer, Subtitle, Row, InputDate } from "./styles";
 import Input from "../Input";
 
 export default function Form() {
     return (
-        <FormContainer>
-            <label>Dados Pessoais</label>
-            <br />
+        <Container>
+            <Header>
+                <TitleContainer>
+                    <Espaco> </Espaco>
+                </TitleContainer>
+            </Header>
 
-            <FullWidth>
-                <label>Nome</label>
-                <Input
-                    size="large"
-                    type="text"
-                    placeholder="Digite seu nome"
-                />
-            </FullWidth>
+            <FormContainer>
+                <Subtitle>Dados Pessoais</Subtitle>
 
-            <FullWidth>
-                <label>Nome Social</label>
-                <Input
-                    size="large"
-                    type="text"
-                    placeholder="Digite seu nome social"
-                />
-            </FullWidth>
+                <Row>
+                    <Input
+                        size="large"
+                        type="text"
+                        placeholder="Nome"
+                    />
 
-            <FormGroup>
-            <label>Data de Nascimento</label>
-            <Input
-                type="date"
-                size="small"
-            />
-            </FormGroup>
+                    <Input
+                        size="large"
+                        type="text"
+                        placeholder="Digite seu nome social"
+                    />
 
-            <FormGroup>
-                <label>CPF</label>
-                <Input
-                    size="small"
-                    type="number"
-                    placeholder="Digite seu CPF"
-                />
-            </FormGroup>
+                </Row>
 
-            <FormGroup>
-                <label>RG</label>
-                <Input
-                    size="small"
-                    type="number"
-                    placeholder="Digite seu RG"
-                />
-            </FormGroup>
-            
-
-            <FormGroup>
-                <label>Gênero</label>
-                <Select defaultValue="">
-                    <option value="" disabled>
-                        Selecione o gênero
-                    </option>
-
-                <option value="feminino">
-                    Feminino
-                </option>
-
-                <option value="masculino">
-                    Masculino
-                </option>
-
-                <option value="outro">
-                    Outro
-                </option>
-            </Select>
-            </FormGroup>
-
-            <FormGroup>
-            <label>Responsável 1</label>
-            <Input
-                size="large"
-                type="text"
-                placeholder="Digite o nome do responsável"
-            />
-            </FormGroup>
-            
-
-            <FormGroup>
-<label>Responsável 2</label>
-            <Input
-                size="large"
-                type="text"
-                placeholder="Digite o nome do responsável"
-            />
-            </FormGroup>
-            
-            <FormGroup>
-<label>Contato 1</label>
-            <Input
-                size="large"
-                type="text"
-                placeholder="Digite o telefone"
-            />
-            </FormGroup>
-            
-
-            <FormGroup>
-                <label>Contato 2</label>
-                <Input
-                    size="large"
-                    type="text"
-                    placeholder="Digite o telefone"
-                />
-            </FormGroup>
+                <Row>
+                    <InputDate
+                        type="text"
+                        placeholder="Data de Nascimento"
+                        onFocus={(e) => e.target.type = 'date'}
+                        onBlur={(e) => {
+                            if (!e.target.value) {
+                                e.target.type = 'text'
+                            }
+                        }}
+                    />
+                    <Input
+                        size="large"
+                        type="number"
+                        placeholder="CPF"
+                    />
 
 
-            <FormGroup>
-                <label>Email</label>
-                <Input
-                    size="large"
-                    type="email"
-                    placeholder="Digite seu email"
-                />
-            </FormGroup>
 
 
-        </FormContainer>
+                </Row>
+
+                <Row>
+                    <Input
+                        size="large"
+                        type="number"
+                        placeholder="Digite seu RG"
+                    />
+
+                    <Select defaultValue="">
+                        <option value="" disabled>
+                            Selecione o gênero
+                        </option>
+
+                        <option value="feminino">
+                            Feminino
+                        </option>
+
+                        <option value="masculino">
+                            Masculino
+                        </option>
+
+                        <option value="outro">
+                            Outro
+                        </option>
+                    </Select>
+
+                </Row>
+
+                <Row>
+                    <Input
+                        size="large"
+                        type="text"
+                        placeholder="Digite o nome do responsável"
+                    />
+
+                    <Input
+                        size="large"
+                        type="text"
+                        placeholder="Digite o telefone"
+                    />
+
+                </Row>
+
+                <Row>
+                    <Input
+                        size="large"
+                        type="text"
+                        placeholder="Digite o nome do responsável"
+                    />
+
+                    <Input
+                        size="large"
+                        type="text"
+                        placeholder="Digite o telefone"
+                    />
+
+                </Row>
+
+                <Row>
+                    <Input
+                        size="large"
+                        type="email"
+                        placeholder="Digite seu email"
+                    />
+                    <Input
+                        size="large"
+                        type="email"
+                        placeholder="Digite seu email"
+                    />
+
+                </Row>
+
+
+            </FormContainer>
+
+        </Container>
     )
 }
 

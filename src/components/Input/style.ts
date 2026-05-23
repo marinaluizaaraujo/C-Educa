@@ -3,7 +3,7 @@ import type { InputProps } from "./props"
 
 export const StyledInput = styled.input<InputProps>`
   width: ${({ size }) => {
-    if (size === "small") return "180px"
+    if (size === "small") return "200px"
     if (size === "large") return "400px"
     return "280px"
   }};
@@ -15,6 +15,8 @@ export const StyledInput = styled.input<InputProps>`
   border-radius: 5px;
   outline: none;
   padding: 0 12px;
+  font-family: ${({ theme }) => theme.fontFamily.primary};
+  font-size: 16px;
 
   &::placeholder {
     color: #9ca3af;
