@@ -89,12 +89,11 @@ export const Select = styled.select`
     width: 400px;
     height: 40px;
     background-color: #D9D9D9;
-    color: #333333;
     border: none;
     border-radius: 5px;
     outline: none;
-    font-family: ${({ theme }) => theme.fontFamily.primary};
     font-size: 16px;
+    font-family: ${({ theme }) => theme.fontFamily.primary};
     padding: 0 12px;
         &:hover {
     border-color: #717171;
@@ -103,5 +102,63 @@ export const Select = styled.select`
     &:focus {
     outline: none;
     border: 2px solid #6c6c6d;
+  }
+`;
+
+export const Linha = styled.hr`
+  border: 1px solid ${({ theme }) => theme.colors.linha};
+
+  opacity: 0.15;
+
+  margin: 6px 0;
+`;
+
+export const TextArea = styled.textarea`
+  width: 100%;
+  height: 110px;
+
+  border: none;
+  border-radius: 10px;
+
+  padding: 16px;
+
+  resize: none;
+
+  background-color: #D9D9D9;
+
+  font-size: 16px;
+  font-family: ${({ theme }) => theme.fontFamily.primary};
+
+  outline: none;
+
+  &::placeholder {
+    color: #8b8b8b;
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const Btn= styled.button`
+background-color: #ff9800;
+
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 10px 16px;
+
+  color: white;
+
+  font-size: 18px;
+  font-family: ${({ theme }) => theme.fontFamily.primary};
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 0.9;
   }
 `;

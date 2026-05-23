@@ -1,6 +1,6 @@
 import Forms from "../../../components/Forms"
 
-export default function Crud() {
+export default function CadastroAluno() {
     return (
         
     <>
