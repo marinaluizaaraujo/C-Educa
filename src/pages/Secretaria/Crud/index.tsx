@@ -1,10 +1,9 @@
 import Forms from "../../../components/Forms"
 
-export default function Alunos() {
+export default function Crud() {
     return (
         
     <>
-        <div>Alunos</div>
         <Forms />
     </>
 
