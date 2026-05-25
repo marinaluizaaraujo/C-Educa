@@ -16,12 +16,13 @@
     "phosphor-react": "^1.4.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-icons": "^5.6.0",
     "react-router-dom": "^7.13.1",
     "styled-components": "^6.3.11"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.3",
-    "@rocketseat/eslint-config": "^2.2.2",
+    "@rocketseat/eslint-config": "^3.0.12",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",

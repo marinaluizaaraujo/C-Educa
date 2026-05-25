@@ -14,7 +14,7 @@ import Vagas from "./pages/Secretaria/Vagas";
 import Empresas from "./pages/Secretaria/Empresas";
 import Alunos from "./pages/Secretaria/Alunos";
 import ListaDeTurmas from "./pages/Secretaria/ListaDeTurmas";
-import Curriculo from "./pages/Aluno/Curriculo";
+import { Curriculo } from "./pages/Aluno/Curriculo";
 
 const router = createBrowserRouter([
     {
