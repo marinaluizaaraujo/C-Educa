@@ -1,11 +1,15 @@
 import { Nav } from '../../components/Nav'
 import { Outlet } from 'react-router-dom'
+import { Container, Content } from './styles'
 
 export default function SecretariaLayout() {
-    return (
-        <div>
-            <Nav role='secretaria' />
-            <Outlet />
-        </div>
-    )
+  return (
+    <Container>
+      <Nav role='secretaria' />
+
+      <Content>
+        <Outlet />
+      </Content>
+    </Container>
+  )
 }

@@ -1,6 +1,6 @@
 import Forms from "../../../components/Forms"
 
-export default function Alunos() {
+export default function CadastroAluno() {
     return (
         
     <>
