@@ -5,6 +5,7 @@ export const Container = styled.div`
   width: 850px;
 
   margin: 30px;
+  margin-left: 400px;
 
   background-color: ${({ theme }) => theme.colors.background};
 
