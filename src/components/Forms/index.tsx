@@ -2,6 +2,22 @@
 import { Container, FormContainer, Header, Select, Espaco, TitleContainer, Subtitle, Row, InputDate, Linha, TextArea, ButtonContainer, Btn } from "./styles";
 import Input from "../Input";
 
+export interface BtnProps {
+  campoTexto: "cadastro" | "editar" | "cancelar";
+}
+
+export function Button({ campoTexto }: BtnProps) {
+  return (
+    <Btn type={campoTexto === "cancelar" ? "button" : "submit"}>
+      {campoTexto === "cadastro"
+        ? "Cadastrar"
+        : campoTexto === "editar"
+        ? "Salvar Alterações"
+        : "Cancelar"}
+    </Btn>
+  );
+}
+
 
 export default function Form() {
     return (
@@ -232,12 +248,9 @@ export default function Form() {
                     <TextArea placeholder="Observações" />
                 </Row>
                 <ButtonContainer>
-                    <Btn>
-                        Cancelar
-                    </Btn>
-                    <Btn>
-                        Cadastrar
-                    </Btn> 
+
+                    <Button campoTexto="cancelar"/>
+                    <Button campoTexto="cadastro"/> 
                     
                 </ButtonContainer>
                 <ButtonContainer>
