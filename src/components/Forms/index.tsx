@@ -1,5 +1,18 @@
 
-import { Container, FormContainer, Header, Select, Espaco, TitleContainer, Subtitle, Row, InputDate, Linha, TextArea, ButtonContainer, Btn } from "./styles";
+import { Container,
+     FormContainer, 
+     Header,
+     Select,
+     Espaco,
+     TitleContainer,
+     Subtitle,
+     Row,
+     InputDate,
+     Linha,
+     TextArea,
+     ButtonContainer,
+     Btn 
+    } from "./styles";
 import Input from "../Input";
 
 

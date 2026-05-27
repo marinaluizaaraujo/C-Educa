@@ -1,7 +1,8 @@
 
-import Input from "../Input"
+import FiltroBusca from "../FiltroBusca"
+import { Container, Espaco, Header, Row, TitleContainer } from "./style"
 
-export default Tabela(){
+export default function Tabela() {
     return (
 
         <Container>
@@ -11,18 +12,11 @@ export default Tabela(){
                 </TitleContainer>
             </Header>
             <Row>
-                <Input
-                    size="medium"
-                    type="text"
-                    placeholder="Pesquisar Aluno"
-                />
-
+                <FiltroBusca/>
+            </Row>
                 
 
-                <TableContainer>
-
-                </>
-                <Container />
+                </Container>
 
                 )
 }
