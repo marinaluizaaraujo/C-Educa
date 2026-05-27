@@ -1,10 +1,7 @@
 
 import { Container, FormContainer, Header, Select, Espaco, TitleContainer, Subtitle, Row, InputDate, Linha, TextArea, ButtonContainer, Btn } from "./styles";
 import Input from "../Input";
-
-export interface BtnProps {
-  campoTexto: "cadastro" | "editar" | "cancelar";
-}
+import type { BtnProps, FormProps } from "./props"
 
 export function Button({ campoTexto }: BtnProps) {
   return (
@@ -15,11 +12,10 @@ export function Button({ campoTexto }: BtnProps) {
         ? "Salvar Alterações"
         : "Cancelar"}
     </Btn>
-  );
+  )
 }
 
-
-export default function Form() {
+export default function Form({ modo = "cadastro" }: FormProps) {
     return (
         <Container>
             <Header>
@@ -250,10 +246,7 @@ export default function Form() {
                 <ButtonContainer>
 
                     <Button campoTexto="cancelar"/>
-                    <Button campoTexto="cadastro"/> 
-                    
-                </ButtonContainer>
-                <ButtonContainer>
+                    <Button campoTexto={modo}/> 
                     
                 </ButtonContainer>
             </FormContainer>

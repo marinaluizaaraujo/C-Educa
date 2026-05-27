@@ -4,7 +4,7 @@ export default function EditarAluno() {
     return (
         
     <>
-        <Forms/>
+        <Forms modo="editar" />
     </>
 
     )
