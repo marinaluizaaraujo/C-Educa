@@ -2,10 +2,17 @@
 import { Container, FormContainer, Header, Select, Espaco, TitleContainer, Subtitle, Row, InputDate, Linha, TextArea, ButtonContainer, Btn } from "./styles";
 import Input from "../Input";
 import type { BtnProps, FormProps } from "./props"
+import { useNavigate } from "react-router-dom"
 
 export function Button({ campoTexto }: BtnProps) {
+
+  const navigate = useNavigate()
+
   return (
-    <Btn type={campoTexto === "cancelar" ? "button" : "submit"}>
+    <Btn
+      type={campoTexto === "cancelar" ? "button" : "submit"}
+      onClick={() => campoTexto === "cancelar" && navigate(-1)}
+    >
       {campoTexto === "cadastro"
         ? "Cadastrar"
         : campoTexto === "editar"
