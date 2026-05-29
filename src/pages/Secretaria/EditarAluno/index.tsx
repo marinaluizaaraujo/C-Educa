@@ -1,10 +1,10 @@
 import Forms from "../../../components/Forms"
 
-export default function CadastroAluno() {
+export default function EditarAluno() {
     return (
         
     <>
-        <Forms modo="cadastro" />
+        <Forms modo="editar" />
     </>
 
     )

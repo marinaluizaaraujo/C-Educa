@@ -14,88 +14,93 @@ import Vagas from "./pages/Secretaria/Vagas";
 import Empresas from "./pages/Secretaria/Empresas";
 import Alunos from "./pages/Secretaria/Alunos";
 import ListaDeTurmas from "./pages/Secretaria/ListaDeTurmas";
+import CadastroAluno from "./pages/Secretaria/CadastroAluno";
+import EditarAluno from "./pages/Secretaria/EditarAluno";
 import { Curriculo } from "./pages/Aluno/Curriculo";
 
 const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    errorElement: <Erro404 />,
+    children: [
+      {
         path: "/",
-        errorElement: <Erro404 />,
-        children: [
-            {
-                path: '/',
-                element: <Login />
-            },
-        ]
-    },
-    {
-        path: "/aluno",
-        element: <AlunoLayout />,
-        children: [
-            {
-                index: true,
-                element: <Aluno />
-            },
-
-            {
-                path: "perfil",
-                element: <Perfil />
-            },
-            {
-                path: "curriculo",
-                element: <Curriculo />
-            },
-        ]
-    },
-    {
-        path: "/professor",
-        element: <ProfessorLayout />,
-        children: [
-            {
-                index: true,
-                element: <Professor />
-            },
-
-            {
-                path: "turmas",
-                element: <Turmas />
-            },
-            {
-                path: "anotacao",
-                element: <Anotacao />
-            }
-        ]
-    },
-    {
-        path: "/secretaria",
-        element: <SecretariaLayout />,
-        children: [
-            {
-                index: true,
-                element: <Secretaria />
-            },
-
-            {
-                path: "listaDeTurmas",
-                element: <ListaDeTurmas />
-            },
-            {
-                path: "alunos",
-                element: <Alunos />
-            },
-            {
-                path: "empresas",
-                element: <Empresas />
-            },
-            {
-                path: "vagas",
-                element: <Vagas />
-            },
-        ]
-    }
-])
+        element: <Login />,
+      },
+    ],
+  },
+  {
+    path: "/aluno",
+    element: <AlunoLayout />,
+    children: [
+      {
+        index: true,
+        element: <Aluno />,
+      },
+      {
+        path: "perfil",
+        element: <Perfil />,
+      },
+      {
+        path: "curriculo",
+        element: <Curriculo />,
+      },
+    ],
+  },
+  {
+    path: "/professor",
+    element: <ProfessorLayout />,
+    children: [
+      {
+        index: true,
+        element: <Professor />,
+      },
+      {
+        path: "turmas",
+        element: <Turmas />,
+      },
+      {
+        path: "anotacao",
+        element: <Anotacao />,
+      },
+    ],
+  },
+  {
+    path: "/secretaria",
+    element: <SecretariaLayout />,
+    children: [
+      {
+        index: true,
+        element: <Secretaria />,
+      },
+      {
+        path: "listaDeTurmas",
+        element: <ListaDeTurmas />,
+      },
+      {
+        path: "alunos",
+        element: <Alunos />,
+      },
+      {
+        path: "alunos/cadastrar",
+        element: <CadastroAluno />,
+      },
+      {
+        path: "alunos/editar",
+        element: <EditarAluno />,
+      },
+      {
+        path: "empresas",
+        element: <Empresas />,
+      },
+      {
+        path: "vagas",
+        element: <Vagas />,
+      },
+    ],
+  },
+]);
 
 export function Router() {
-    return (
-        <RouterProvider router={router} />
-    )
+  return <RouterProvider router={router} />;
 }

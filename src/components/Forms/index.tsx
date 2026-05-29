@@ -14,9 +14,28 @@ import { Container,
      Btn 
     } from "./styles";
 import Input from "../Input";
+import type { BtnProps, FormProps } from "./props"
+import { useNavigate } from "react-router-dom"
 
+export function Button({ campoTexto }: BtnProps) {
 
-export default function Form() {
+  const navigate = useNavigate()
+
+  return (
+    <Btn
+      type={campoTexto === "cancelar" ? "button" : "submit"}
+      onClick={() => campoTexto === "cancelar" && navigate(-1)}
+    >
+      {campoTexto === "cadastro"
+        ? "Cadastrar"
+        : campoTexto === "editar"
+        ? "Salvar Alterações"
+        : "Cancelar"}
+    </Btn>
+  )
+}
+
+export default function Form({ modo = "cadastro" }: FormProps) {
     return (
         <Container>
             <Header>
@@ -245,15 +264,9 @@ export default function Form() {
                     <TextArea placeholder="Observações" />
                 </Row>
                 <ButtonContainer>
-                    <Btn>
-                        Cancelar
-                    </Btn>
-                    <Btn>
-                        Cadastrar
-                    </Btn> 
-                    
-                </ButtonContainer>
-                <ButtonContainer>
+
+                    <Button campoTexto="cancelar"/>
+                    <Button campoTexto={modo}/> 
                     
                 </ButtonContainer>
             </FormContainer>
