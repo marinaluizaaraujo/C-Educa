@@ -86,23 +86,12 @@ export default function Form({ modo = "cadastro" }: FormProps) {
                         placeholder="RG"
                     />
 
-                    <Select defaultValue="">
-                        <option value="" disabled>
-                            Selecione o gênero
-                        </option>
+                    <Input
+                        size="large"
+                        type="email"
+                        placeholder="Email Aluno"
+                    />
 
-                        <option value="feminino">
-                            Feminino
-                        </option>
-
-                        <option value="masculino">
-                            Masculino
-                        </option>
-
-                        <option value="outro">
-                            Outro
-                        </option>
-                    </Select>
                 </Row>
 
                 <Row>
@@ -134,11 +123,6 @@ export default function Form({ modo = "cadastro" }: FormProps) {
                 </Row>
 
                 <Row>
-                    <Input
-                        size="large"
-                        type="email"
-                        placeholder="Email Aluno"
-                    />
                     <Input
                         size="large"
                         type="email"

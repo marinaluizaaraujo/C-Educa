@@ -1,7 +1,8 @@
 
 import { FaEdit } from "react-icons/fa"
+import { Link } from "react-router-dom";
 import FiltroBusca from "../FiltroBusca"
-import { Container, EditButton, Espaco, Header, Row, Table, TableContainer, Td, Th, TitleContainer, Tr,  } from "./style"
+import { Container, EditButton, Espaco, Header, Row, Table, TableContainer, Td, Th, TitleContainer, Tr, } from "./style"
 
 export default function Tabela() {
     const alunos = [
@@ -41,7 +42,10 @@ export default function Tabela() {
                                 <Td>{aluno.turma}</Td>
                                 <Td>
                                     <EditButton>
-                                        <FaEdit />
+                                        <Link to="/secretaria/alunos/editar">
+                                            <FaEdit />
+                                        </Link>
+
                                     </EditButton>
                                 </Td>
                             </Tr>

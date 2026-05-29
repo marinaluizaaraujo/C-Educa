@@ -9,10 +9,6 @@ export default function Alunos() {
         <Link to="/secretaria/alunos/cadastrar">
           <Btn>Cadastrar Aluno</Btn>
         </Link>
-
-        <Link to="/secretaria/alunos/editar">
-          <Btn>Editar Aluno</Btn>
-        </Link>
       </ButtonContainer>
 
       <Tabela />
