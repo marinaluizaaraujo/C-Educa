@@ -1,7 +1,14 @@
 
-import Input from "../Input"
+import { FaEdit } from "react-icons/fa"
+import FiltroBusca from "../FiltroBusca"
+import { Container, EditButton, Espaco, Header, Row, Table, TableContainer, Td, Th, TitleContainer, Tr,  } from "./style"
 
-export default Tabela(){
+export default function Tabela() {
+    const alunos = [
+        { ra: "1234567891", nome: "Ana Silva", turno: "Manhã", turma: "ADM" },
+        { ra: "6789807785", nome: "João Souza", turno: "Tarde", turma: "TI" },
+    ]
+
     return (
 
         <Container>
@@ -11,18 +18,38 @@ export default Tabela(){
                 </TitleContainer>
             </Header>
             <Row>
-                <Input
-                    size="medium"
-                    type="text"
-                    placeholder="Pesquisar Aluno"
-                />
+                <FiltroBusca />
+            </Row>
+            <TableContainer>
+                <Table>
+                    <thead>
+                        <tr>
+                            <Th>RA</Th>
+                            <Th>Nome</Th>
+                            <Th>Turno</Th>
+                            <Th>Turma</Th>
+                            <Th>Editar</Th>
+                        </tr>
+                    </thead>
 
-                
+                    <tbody>
+                        {alunos.map((aluno) => (
+                            <Tr key={aluno.ra}>
+                                <Td>{aluno.ra}</Td>
+                                <Td>{aluno.nome}</Td>
+                                <Td>{aluno.turno}</Td>
+                                <Td>{aluno.turma}</Td>
+                                <Td>
+                                    <EditButton>
+                                        <FaEdit />
+                                    </EditButton>
+                                </Td>
+                            </Tr>
+                        ))}
+                    </tbody>
+                </Table>
+            </TableContainer>
+        </Container>
 
-                <TableContainer>
-
-                </>
-                <Container />
-
-                )
+    )
 }

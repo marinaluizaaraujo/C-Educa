@@ -1,6 +1,6 @@
 import Logo from "../../assets/logo.png"
 import { Box, Container, IconAjuda, LinkAjuda, Navgation, NavList, PaginaLink, Stack } from "./styles";
-import { Text } from "../Text/styles";
+import { Text } from "../Text/style";
 import type { UserRole } from "./types";
 import { menus } from "./menus";
 

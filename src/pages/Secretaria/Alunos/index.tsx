@@ -1,28 +1,21 @@
 import { Link } from "react-router-dom";
 import { Btn, ButtonContainer } from "./style";
-
-
+import Tabela from "../../../components/Tabela";
 
 export default function Alunos() {
-    return (
+  return (
+    <>
+      <ButtonContainer>
+        <Link to="/secretaria/alunos/cadastrar">
+          <Btn>Cadastrar Aluno</Btn>
+        </Link>
 
-        <>
-            <ButtonContainer>
-                <Link to="/secretaria/alunos/cadastrar">
-                    <Btn>
-                    Cadastrar Aluno
-                </Btn>
-                </Link>
+        <Link to="/secretaria/alunos/editar">
+          <Btn>Editar Aluno</Btn>
+        </Link>
+      </ButtonContainer>
 
-                <Link to="/secretaria/alunos/editar">
-                    
-                <Btn>
-                    Editar Aluno
-                </Btn>
-                </Link>
-                
-            </ButtonContainer>
-        </>
-
-    )
+      <Tabela />
+    </>
+  );
 }
