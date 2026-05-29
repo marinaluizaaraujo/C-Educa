@@ -10,7 +10,6 @@ export default function Alunos() {
           <Btn>Cadastrar Aluno</Btn>
         </Link>
       </ButtonContainer>
-
       <Tabela />
     </>
   );

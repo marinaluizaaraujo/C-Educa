@@ -1,15 +1,18 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const ButtonContainer = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-`
+  justify-content: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-left: 400px;
+`;
 
-export const Btn= styled.button`
+export const Btn = styled.button`
   background-color: #ff9800;
   border: none;
   border-radius: 5px;
-  margin-left: 10px;
   padding: 10px 16px;
   color: white;
   font-size: 18px;
