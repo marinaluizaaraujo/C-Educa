@@ -26,4 +26,13 @@ export const StyledInput = styled.input<InputProps>`
    
   border: 2px solid #6c6c6d;
 }
+
+&[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #F9862F;
+    cursor: pointer;
+    padding: 0;
+    margin: 5px;
+  }
 `;

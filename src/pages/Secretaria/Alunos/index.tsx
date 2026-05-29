@@ -1,10 +1,11 @@
-import Forms from "../../../components/Forms"
+
+import Tabela from "../../../components/Tabela"
 
 export default function Alunos() {
     return (
         
     <>
-        <Forms />
+        <Tabela/>
     </>
 
     )
