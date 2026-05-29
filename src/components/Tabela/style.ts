@@ -49,5 +49,52 @@ export const Row = styled.div`
   }
 `;
 
+export const TableContainer = styled.div`
+  margin: 20px;
+  overflow-x: auto;
+  font-family: ${({ theme }) => theme.fontFamily.primary};
+`;
+
+export const Table = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+`;
+
+export const Th = styled.th`
+  padding: 12px;
+  text-align: left;
+  background-color: #f3f4f6;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 2px solid #ddd;
+  font-size: 20px;
+`;
+
+export const Td = styled.td`
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 18px;
+`;
+
+export const Tr = styled.tr`
+  &:hover {
+    background-color: #f9fafb;
+  }
+`;
+
+export const EditButton = styled.button`
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
 
 
