@@ -7,10 +7,11 @@ import {
     FormContainer,
     Row,
     Input,
-    Select,
     Linha,
     TextArea,
     CheckboxContainer,
+    TextLongo,
+    TituloExp,
 } from "./styles";
 import { GrDocumentPdf } from "react-icons/gr";
 import { ImProfile } from "react-icons/im";
@@ -40,36 +41,35 @@ export function Curriculo(){
                 </Row>
 
                 <Row>
-                    <Input type="date" />
-
-                    <Select>
-                        <option>Gênero</option>
-                        <option>Masculino</option>
-                        <option>Feminino</option>
-                        <option>Outro</option>
-                    </Select>
-                </Row>
-
-                <Row>
                     <Input type="text" placeholder="Cidade" />
                     <Input type="text" placeholder="Endereço" />
                 </Row>
 
                 <Linha />
 
-                <TextArea placeholder="Objetivo" />
+                <TextArea type="text" placeholder="Objetivo" />
 
-                <TextArea placeholder="Formação acadêmica" />
+                <TextArea type="text" placeholder="Formação acadêmica" />
 
                 <Linha />
 
-                <TextArea placeholder="Experiência profissional" />
-                <CheckboxContainer>
-                    <input type="checkbox" />
-                    Não tenho
-                </CheckboxContainer>
+                <Row>
+                    <TituloExp>Experiência profissional</TituloExp>
+                    <CheckboxContainer>
+                        <input type="checkbox" /> Não tenho
+                    </CheckboxContainer>
+                </Row>
+                <TextLongo type="text" placeholder="Empresa"/>
+                <TextLongo type="text" placeholder="Cargo"/>
+                <TextLongo type="text" placeholder="Descrição"/>
+                <Row>
+                    <Input type="text" placeholder="Início"/>
+                    <Input type="text" placeholder="Fim"/>
+                </Row>
 
-                <TextArea placeholder="Qualificações e Cursos Complementares" />
+                <Linha />
+
+                <TextArea type="text" placeholder="Qualificações e Cursos Complementares" />
             </FormContainer>
         </Container>
     );
