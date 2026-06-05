@@ -47,10 +47,10 @@ export function Login() {
                         </option>
                     </select>
 
-                    <input
+                    {/* <input
                         type="password"
                         placeholder="Senha"
-                    />
+                    /> */}
 
                     <Button
                         size="small"

@@ -16,6 +16,28 @@ export const Container = styled.div`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 `;
 
+export const ReadonlyField = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+
+  span {
+    font-size: 12px;
+    color: ${({ theme }) => theme.colors.textInput}; 
+  }
+
+  input {
+    background: ${({ theme }) => theme.colors.backgroundInput};
+    color: ${({ theme }) => theme.colors.textInput};
+    border: 1px solid ${({ theme }) => theme.colors.backgroundInput};
+    border-radius: 6px;
+    padding: 10px 12px;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+`
+
 export const Header = styled.div`
   width: 100%;
   height: 70px;
@@ -50,7 +72,7 @@ export const Espaco = styled.h3`
 export const InputDate = styled.input`
     width: 400px;
   height: 40px;
-  background-color: #D9D9D9;
+  background-color: ${({ theme }) => theme.colors.backgroundInput};
   color: #333333;
   border: none;
   border-radius: 5px;
@@ -89,7 +111,7 @@ export const FormContainer = styled.form`
 export const Select = styled.select`
     width: 400px;
     height: 40px;
-    background-color: #D9D9D9;
+    background-color: ${({ theme }) => theme.colors.backgroundInput};
     border: none;
     border-radius: 5px;
     outline: none;
@@ -98,7 +120,7 @@ export const Select = styled.select`
     padding: 0 12px;
         &:hover {
     border-color: #717171;
-    background: #CBCBCB;
+    background: ${({ theme }) => theme.colors.backgroundInput};
   }
     &:focus {
     outline: none;
@@ -125,7 +147,7 @@ export const TextArea = styled.textarea`
 
   resize: none;
 
-  background-color: #D9D9D9;
+  background-color: ${({ theme }) => theme.colors.backgroundInput};
 
   font-size: 16px;
   font-family: ${({ theme }) => theme.fontFamily.primary};
@@ -142,7 +164,7 @@ export const ButtonContainer = styled.div`
   justify-content: flex-end;
 `
 
-export const Btn= styled.button`
+export const Btn = styled.button`
 background-color: #ff9800;
 
   border: none;

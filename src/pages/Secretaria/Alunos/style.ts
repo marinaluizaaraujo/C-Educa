@@ -1,12 +1,17 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  overflow-x: hidden;
+`
+
 export const ButtonContainer = styled.div`
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: flex-start;
-  padding: 20px;
   box-sizing: border-box;
-  margin-left: 400px;
+  margin-top: 4rem;
+  margin-left: 22%;
+  
 `;
 
 export const Btn = styled.button`

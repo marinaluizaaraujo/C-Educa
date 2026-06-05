@@ -4,6 +4,7 @@ export const defaultTheme = {
         "backgroundNav": "#2F369C",
         "backgroundButton": "#F9862F",
         "backgroundInput": "#F0F0F0",
+        "delete": "#c92216",
         "linha": "#000763",
         "textPrimary": "#FFFFFF",
         "textSecondary": "#000000",

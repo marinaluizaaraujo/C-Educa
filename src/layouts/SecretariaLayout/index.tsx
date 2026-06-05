@@ -1,15 +1,18 @@
 import { Nav } from '../../components/Nav'
 import { Outlet } from 'react-router-dom'
 import { Container, Content } from './styles'
+import { AlunosProvider } from '../../contexts/AlunosContext'
 
 export default function SecretariaLayout() {
   return (
-    <Container>
-      <Nav role='secretaria' />
+    <AlunosProvider>
+      <Container>
+        <Nav role='secretaria' />
 
-      <Content>
-        <Outlet />
-      </Content>
-    </Container>
+        <Content>
+          <Outlet />
+        </Content>
+      </Container>
+    </AlunosProvider>
   )
 }

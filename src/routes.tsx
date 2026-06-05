@@ -14,9 +14,10 @@ import Vagas from "./pages/Secretaria/Vagas";
 import Empresas from "./pages/Secretaria/Empresas";
 import Alunos from "./pages/Secretaria/Alunos";
 import ListaDeTurmas from "./pages/Secretaria/ListaDeTurmas";
-import CadastroAluno from "./pages/Secretaria/CadastroAluno";
-import EditarAluno from "./pages/Secretaria/EditarAluno";
+import CadastroAluno from "./pages/Secretaria/Alunos/CadastroAluno";
+import EditarAluno from "./pages/Secretaria/Alunos/EditarAluno";
 import { Curriculo } from "./pages/Aluno/Curriculo";
+import CadastroProfessor from "./pages/Secretaria/Professores/CadastroProfessor";
 
 const router = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
       {
         path: "alunos/editar",
         element: <EditarAluno />,
+      },
+      {
+        path: "professores/cadastrar",
+        element: <CadastroProfessor />,
       },
       {
         path: "empresas",

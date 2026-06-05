@@ -1,50 +1,81 @@
 import { useState } from "react";
 import Input from "../Input";
 import { Search, SlidersHorizontal } from "lucide-react";
-import {
-  Container,
-  SearchContainer,
-  FilterButton,
-  ModalOverlay,
-  ModalContent,
-  ModalTitle,
-  Label,
-  Options,
-  Actions,
-  ApplyButton,
-  CancelButton,
-} from "./style";
+import { Container, SearchContainer, FilterButton, ModalOverlay, ModalContent, ModalTitle, Label, Options, Actions, ApplyButton, CancelButton } from "./style";
+import { useAlunos } from "../../contexts/AlunosContext";
+
+const CURSOS = [
+  { label: "Administração", value: "adm" },
+  { label: "Programação", value: "programacao" },
+  { label: "Confeitaria", value: "confeitaria" },
+]
+
+const TURNOS = [
+  { label: "Manhã", value: "manha" },
+  { label: "Tarde", value: "tarde" },
+  { label: "Noite", value: "noite" },
+]
 
 function FiltroAlunos() {
+  const {
+    busca, setBusca,
+    cursosSelecionados, setCursosSelecionados,
+    turnosSelecionados, setTurnosSelecionados,
+  } = useAlunos()
+
   const [modalAberto, setModalAberto] = useState(false);
-  const [cursos, setCursos] = useState<string[]>([]);
-  const [turnos, setTurnos] = useState<string[]>([]);
 
-  const textoFiltro =
-    [...cursos, ...turnos].length > 0
-      ? [...cursos, ...turnos].join(", ")
-      : "Filtrar Turmas e Turnos";
+  const [cursosTemp, setCursosTemp] = useState<string[]>(cursosSelecionados)
+  const [turnosTemp, setTurnosTemp] = useState<string[]>(turnosSelecionados)
 
-  function marcarFiltro(
+  function toggle(
     valor: string,
     lista: string[],
     setLista: React.Dispatch<React.SetStateAction<string[]>>
   ) {
-    if (lista.includes(valor)) {
-      setLista(lista.filter((item) => item !== valor));
-    } else {
-      setLista([...lista, valor]);
-    }
+    setLista(lista.includes(valor)
+      ? lista.filter(i => i !== valor)
+      : [...lista, valor]
+    )
   }
+
+  function abrirModal() {
+    setCursosTemp(cursosSelecionados)
+    setTurnosTemp(turnosSelecionados)
+    setModalAberto(true)
+  }
+
+  function aplicar() {
+    setCursosSelecionados(cursosTemp)
+    setTurnosSelecionados(turnosTemp)
+    setModalAberto(false)
+  }
+
+  function cancelar() {
+    setCursosTemp(cursosSelecionados)
+    setTurnosTemp(turnosSelecionados)
+    setModalAberto(false)
+  }
+
+  const totalFiltros = cursosSelecionados.length + turnosSelecionados.length
+  const textoFiltro = totalFiltros > 0
+    ? `${totalFiltros} filtro${totalFiltros > 1 ? "s" : ""} aplicado${totalFiltros > 1 ? "s" : ""}`
+    : "Filtrar Turmas e Turnos"
 
   return (
     <Container>
       <SearchContainer>
-        <Input type="text" placeholder="Pesquisar Aluno" size="large" />
+        <Input
+          type="text"
+          placeholder="Pesquisar Aluno"
+          size="large"
+          value={busca}
+          onChange={(e) => setBusca(e.target.value)}
+        />
         <Search size={22} />
       </SearchContainer>
 
-      <FilterButton type="button" onClick={() => setModalAberto(true)}>
+      <FilterButton type="button" onClick={abrirModal}>
         <SlidersHorizontal size={20} />
         {textoFiltro}
       </FilterButton>
@@ -55,14 +86,14 @@ function FiltroAlunos() {
             <ModalTitle>Cursos</ModalTitle>
 
             <Options>
-              {["ADM", "TI", "Confeitaria"].map((curso) => (
-                <Label key={curso}>
+              {CURSOS.map(({ label, value }) => (
+                <Label key={value}>
                   <input
                     type="checkbox"
-                    checked={cursos.includes(curso)}
-                    onChange={() => marcarFiltro(curso, cursos, setCursos)}
+                    checked={cursosTemp.includes(value)}
+                    onChange={() => toggle(value, cursosTemp, setCursosTemp)}
                   />
-                  {curso}
+                  {label}
                 </Label>
               ))}
             </Options>
@@ -70,24 +101,24 @@ function FiltroAlunos() {
             <ModalTitle>Turnos</ModalTitle>
 
             <Options>
-              {["Manhã", "Tarde", "Noite"].map((turno) => (
-                <Label key={turno}>
+              {TURNOS.map(({ label, value }) => (
+                <Label key={value}>
                   <input
                     type="checkbox"
-                    checked={turnos.includes(turno)}
-                    onChange={() => marcarFiltro(turno, turnos, setTurnos)}
+                    checked={turnosTemp.includes(value)}
+                    onChange={() => toggle(value, turnosTemp, setTurnosTemp)}
                   />
-                  {turno}
+                  {label}
                 </Label>
               ))}
             </Options>
 
             <Actions>
-              <CancelButton type="button" onClick={() => setModalAberto(false)}>
+              <CancelButton type="button" onClick={cancelar}>
                 Cancelar
               </CancelButton>
 
-              <ApplyButton type="button" onClick={() => setModalAberto(false)}>
+              <ApplyButton type="button" onClick={aplicar}>
                 Aplicar
               </ApplyButton>
             </Actions>

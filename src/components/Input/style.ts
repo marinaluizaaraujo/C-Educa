@@ -9,7 +9,7 @@ export const StyledInput = styled.input<InputProps>`
   }};
 
   height: 40px;
-  background-color: #D9D9D9;
+  background-color: ${({ theme }) => theme.colors.backgroundInput};
   color: #333333;
   border: none;
   border-radius: 5px;
@@ -23,7 +23,6 @@ export const StyledInput = styled.input<InputProps>`
   }
 
   &:focus {
-   
   border: 2px solid #6c6c6d;
 }
 
