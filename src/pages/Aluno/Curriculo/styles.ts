@@ -104,26 +104,6 @@ export const Input = styled.input`
   }
 `;
 
-export const Select = styled.select`
-  flex: 1;
-
-  height: 48px;
-
-  border: none;
-  border-radius: 10px;
-
-  padding: 0 16px;
-
-  background-color: #f8f8f8;
-
-  font-size: 16px;
-  font-family: ${({ theme }) => theme.fontFamily.primary};
-
-  outline: none;
-
-  color: #8b8b8b;
-`;
-
 export const Linha = styled.hr`
   border: 1px solid ${({ theme }) => theme.colors.linha};
 
@@ -132,9 +112,32 @@ export const Linha = styled.hr`
   margin: 6px 0;
 `;
 
-export const TextArea = styled.textarea`
+export const TextArea = styled.input`
   width: 100%;
   height: 110px;
+
+  border: none;
+  border-radius: 10px;
+
+  padding: 16px;
+
+  resize: none;
+
+  background-color: #f8f8f8;
+
+  font-size: 16px;
+  font-family: ${({ theme }) => theme.fontFamily.primary};
+
+  outline: none;
+
+  &::placeholder {
+    color: #8b8b8b;
+  }
+`;
+
+export const TextLongo = styled.input`
+  width: 100%;
+  height: 50px;
 
   border: none;
   border-radius: 10px;
@@ -165,4 +168,9 @@ export const CheckboxContainer = styled.label`
   font-family: ${({ theme }) => theme.fontFamily.primary};
 
   color: #777;
+`;
+
+export const TituloExp = styled.h4`
+  color: #777;
+  padding: 5px;
 `;
