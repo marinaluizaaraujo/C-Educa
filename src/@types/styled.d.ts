@@ -7,6 +7,7 @@ declare module "styled-components" {
             backgroundNav: string;
             backgroundButton: string;
             backgroundInput: string;
+            delete: string;
             linha: string;
             textPrimary: string;
             textSecondary: string;

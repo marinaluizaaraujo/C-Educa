@@ -187,14 +187,9 @@ span{
 export const IconTurmas = styled(ChalkboardTeacherIcon)`
 color: ${({ theme }) => theme.colors.textPrimary};
 
-${media.tablet(css`
-width: 25px;
-height: 25px;
-`)}
-
 ${media.desktop(css`
-width: 45px;
-height: 45px;
+width: 50px;
+height: 50px;
 `)}
 
 `
@@ -202,28 +197,16 @@ height: 45px;
 export const IconAjuda = styled(QuestionIcon)`
 color: ${({ theme }) => theme.colors.textPrimary};
 
-${media.tablet(css`
-width: 25px;
-height: 25px;
-`)}
-
-${media.desktop(css`
 width: 45px;
 height: 45px;
-`)}
+
 `
 export const IconPerfil = styled(Person)`
 color: ${({ theme }) => theme.colors.textPrimary};
 
-${media.tablet(css`
-width: 25px;
-height: 25px;
-`)}
 
-${media.desktop(css`
 width: 45px;
 height: 45px;
-`)}
 `
 
 export const IconHome = styled(House)`

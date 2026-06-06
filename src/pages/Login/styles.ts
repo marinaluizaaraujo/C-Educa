@@ -48,7 +48,7 @@ select, input{
     height: 2.3rem;
     padding-left: 1rem;
     border: none;
-    border-radius: ${({ theme }) => theme.borderRadius.card};
+    border-radius: ${({ theme }) => theme.borderRadius.button};
 
     &::placeholder {
     color: ${({ theme }) => theme.colors.textInput};

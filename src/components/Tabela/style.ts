@@ -1,9 +1,11 @@
+import { FileArrowDownIcon, PencilSimpleLine } from "@phosphor-icons/react";
+import { Trash } from "phosphor-react";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 850px;
+  width: 63rem;
   margin: 30px;
-  margin-left: 400px;
+  margin-left: 22%;
   background-color: ${({ theme }) => theme.colors.background};
   border-radius: 16px;
   overflow: hidden;
@@ -87,6 +89,7 @@ export const Tr = styled.tr`
 
 export const EditButton = styled.button`
   border: none;
+  width: 100%;
   background: transparent;
   cursor: pointer;
   font-size: 18px;
@@ -96,5 +99,35 @@ export const EditButton = styled.button`
   }
 `;
 
+export const IconeEditar = styled(PencilSimpleLine)`
+  color: ${({ theme }) => theme.colors.textSecondary};
+  width: 25px;
+  height: 25px;
+    transition: color 0.3s ease;
 
+    &:hover {
+    color: ${({ theme }) => theme.colors.linha}; 
+  }
+`
 
+export const IconeDelete = styled(Trash)`
+  color: ${({ theme }) => theme.colors.textSecondary};
+  width: 25px;
+  height: 25px;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.delete}; 
+  }
+`
+
+export const IconeCurriculo = styled(FileArrowDownIcon)`
+  color: ${({ theme }) => theme.colors.textSecondary};
+  width: 25px;
+  height: 25px;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.linha}; 
+  }
+`

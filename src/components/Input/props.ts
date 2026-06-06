@@ -1,5 +1,5 @@
-export interface InputProps {
-  size?: "small" | "medium" | "large"
-  type?: "text" | "email" | "password" | "number" | "date" | "checkbox"
-  placeholder?: string
+import type { InputHTMLAttributes } from "react"
+
+export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
+  size?: "small" | "medium" | "large";
 }

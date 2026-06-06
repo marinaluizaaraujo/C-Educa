@@ -1,14 +1,12 @@
 
-import { FaEdit } from "react-icons/fa"
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import FiltroBusca from "../FiltroBusca"
-import { Container, EditButton, Espaco, Header, Row, Table, TableContainer, Td, Th, TitleContainer, Tr, } from "./style"
+import { Container, EditButton, Espaco, Header, IconeCurriculo, IconeDelete, IconeEditar, Row, Table, TableContainer, Td, Th, TitleContainer, Tr, } from "./style"
+import { useAlunos } from "../../contexts/AlunosContext";
 
 export default function Tabela() {
-    const alunos = [
-        { ra: "1234567891", nome: "Ana Silva", turno: "Manhã", turma: "ADM" },
-        { ra: "6789807785", nome: "João Souza", turno: "Tarde", turma: "TI" },
-    ]
+    const { alunosFiltrados, removeAluno } = useAlunos()
+    const navigate = useNavigate()
 
     return (
 
@@ -27,25 +25,36 @@ export default function Tabela() {
                         <tr>
                             <Th>RA</Th>
                             <Th>Nome</Th>
+                            <Th>Curso</Th>
                             <Th>Turno</Th>
                             <Th>Turma</Th>
                             <Th>Editar</Th>
+                            <Th>Excluir</Th>
+                            <Th>Curriculo</Th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        {alunos.map((aluno) => (
+                        {alunosFiltrados.map((aluno) => (
                             <Tr key={aluno.ra}>
                                 <Td>{aluno.ra}</Td>
                                 <Td>{aluno.nome}</Td>
+                                <Td>{aluno.curso}</Td>
                                 <Td>{aluno.turno}</Td>
                                 <Td>{aluno.turma}</Td>
                                 <Td>
-                                    <EditButton>
-                                        <Link to="/secretaria/alunos/editar">
-                                            <FaEdit />
-                                        </Link>
-
+                                    <EditButton onClick={() => navigate("/secretaria/alunos/editar", { state: aluno })}>
+                                        <IconeEditar />
+                                    </EditButton>
+                                </Td>
+                                <Td>
+                                    <EditButton onClick={() => removeAluno(aluno.ra)}>
+                                        <IconeDelete />
+                                    </EditButton>
+                                </Td>
+                                <Td>
+                                    <EditButton >
+                                        <IconeCurriculo />
                                     </EditButton>
                                 </Td>
                             </Tr>
