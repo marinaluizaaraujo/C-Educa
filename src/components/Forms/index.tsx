@@ -1,4 +1,3 @@
-
 import { Container, FormContainer, Header, Select, Espaco, TitleContainer, Subtitle, Row, InputDate, Linha, TextArea, ButtonContainer, Btn, ReadonlyField } from "./styles";
 import Input from "../Input";
 import type { BtnProps, FormProps } from "./props"
@@ -39,7 +38,7 @@ function renderField(field: FieldConfig,
         return <TextArea key={field.name}{...register(field.name)} placeholder={field.placeholder} />
     }
 
-    if (field.type === "date") {    
+    if (field.type === "date") {
         return (
             <InputDate
                 key={field.name}
@@ -49,6 +48,15 @@ function renderField(field: FieldConfig,
                 onFocus={(e) => (e.target.type = "date")}
                 onBlur={(e) => { if (!e.target.value) e.target.type = "text" }}
             />
+        )
+    }
+
+    if (field.type === "checkbox") {
+        return (
+            <label key={field.name} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <input type="checkbox" {...register(field.name)} />
+                {field.placeholder}
+            </label>
         )
     }
 
@@ -81,26 +89,27 @@ export function Button({ campoTexto }: BtnProps) {
     )
 }
 
-export default function Form({ modo = "cadastro", role = "aluno", dadosIniciais }: FormProps) {
+export default function Form({ modo = "cadastro", role = "aluno", dadosIniciais, onSubmitExterno }: FormProps) {
     const sections = formConfigByRole[role]
-    const { addAluno, editAluno } = useAlunos()
+    const alunosContext = useAlunos()
     const navigate = useNavigate()
-
     const { register, handleSubmit, reset } = useForm()
 
     useEffect(() => {
-        if (dadosIniciais) {
-            reset(dadosIniciais)
-        }
+        if (dadosIniciais) reset(dadosIniciais)
     }, [dadosIniciais, reset])
 
     function onSubmit(data: Record<string, string>) {
+        if (onSubmitExterno) {
+            onSubmitExterno(data)
+            return
+        }
         if (role === "aluno") {
             if (modo === "cadastro") {
-                addAluno(data as Omit<Aluno, "ra">)
+                alunosContext.addAluno(data as unknown as Omit<Aluno, "ra">)
                 navigate("/secretaria/alunos")
             } else if (modo === "editar" && dadosIniciais) {
-                editAluno({ ...data, ra: dadosIniciais.ra } as Aluno)
+                alunosContext.editAluno({ ...data, ra: dadosIniciais.ra } as Aluno)
                 navigate("/secretaria/alunos")
             }
         }
@@ -109,16 +118,13 @@ export default function Form({ modo = "cadastro", role = "aluno", dadosIniciais 
     return (
         <Container>
             <Header>
-                <TitleContainer>
-                    <Espaco> </Espaco>
-                </TitleContainer>
+                <TitleContainer><Espaco> </Espaco></TitleContainer>
             </Header>
             <FormContainer onSubmit={handleSubmit(onSubmit)}>
                 {sections.map((section, si) => (
                     <React.Fragment key={`section-${si}`}>
-                        {si > 0 && <Linha key={`linha-${si}`} />}
-                        <Subtitle key={`title-${si}`}>{section.title}</Subtitle>
-
+                        {si > 0 && <Linha />}
+                        <Subtitle>{section.title}</Subtitle>
                         {section.fields.map((row, ri) => (
                             <Row key={`row-${si}-${ri}`}>
                                 {row.map(field => renderField(field, register, modo))}
@@ -126,7 +132,6 @@ export default function Form({ modo = "cadastro", role = "aluno", dadosIniciais 
                         ))}
                     </React.Fragment>
                 ))}
-
                 <ButtonContainer>
                     <Button campoTexto="cancelar" />
                     <Button campoTexto={modo} />
@@ -135,4 +140,3 @@ export default function Form({ modo = "cadastro", role = "aluno", dadosIniciais 
         </Container>
     )
 }
-

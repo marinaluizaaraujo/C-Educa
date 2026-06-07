@@ -1,6 +1,6 @@
 import type { Role } from "./props"
 
-export type FieldType = "text" | "email" | "number" | "date" | "select" | "textarea"
+export type FieldType = "text" | "email" | "number" | "date" | "select" | "textarea" | "checkbox"
 
 export interface FieldConfig {
     name: string
@@ -167,6 +167,51 @@ export const formConfigByRole: Record<Role, SectionConfig[]> = {
                     },
                     { name: "admissao", placeholder: "Data de Admissão", type: "date" },
                 ],
+            ],
+        },
+    ],
+    curriculo: [
+        {
+            title: "Dados Pessoais",
+            fields: [
+                [
+                    { name: "nome", placeholder: "Nome", type: "text" },
+                    { name: "nomeSocial", placeholder: "Nome social (opcional)", type: "text" },
+                ],
+                [
+                    { name: "telefone", placeholder: "Telefone", type: "text" },
+                    { name: "telefoneRecado", placeholder: "Telefone (recado)", type: "text" },
+                ],
+                [
+                    { name: "cidade", placeholder: "Cidade", type: "text" },
+                    { name: "endereco", placeholder: "Endereço", type: "text" },
+                ],
+            ],
+        },
+        {
+            title: "Perfil",
+            fields: [
+                [{ name: "objetivo", placeholder: "Objetivo", type: "textarea", full: true }],
+                [{ name: "formacao", placeholder: "Formação acadêmica", type: "textarea", full: true }],
+            ],
+        },
+        {
+            title: "Experiência Profissional",
+            fields: [
+                [{ name: "semExperiencia", placeholder: "Não tenho experiência", type: "checkbox" }],
+                [{ name: "empresa", placeholder: "Empresa", type: "text", full: true }],
+                [{ name: "cargo", placeholder: "Cargo", type: "text", full: true }],
+                [{ name: "descricao", placeholder: "Descrição", type: "textarea", full: true }],
+                [
+                    { name: "expInicio", placeholder: "Início", type: "text" },
+                    { name: "expFim", placeholder: "Fim", type: "text" },
+                ],
+            ],
+        },
+        {
+            title: "Qualificações",
+            fields: [
+                [{ name: "qualificacoes", placeholder: "Qualificações e Cursos Complementares", type: "textarea", full: true }],
             ],
         },
     ],

@@ -7,5 +7,4 @@ export const Container = styled.div`
 
 export const Content = styled.main`
   flex: 1;
-  padding: 2rem;
 `;

@@ -1,76 +1,38 @@
-import {
-    Container,
-    Header,
-    TitleContainer,
-    Title,
-    BtnBaixar,
-    FormContainer,
-    Row,
-    Input,
-    Linha,
-    TextArea,
-    CheckboxContainer,
-    TextLongo,
-    TituloExp,
-} from "./styles";
-import { GrDocumentPdf } from "react-icons/gr";
-import { ImProfile } from "react-icons/im";
+// src/pages/Aluno/Curriculo/index.tsx
+import { useNavigate } from "react-router-dom"
+import Form from "../../../components/Forms"
+import { useCurriculo, type DadosCurriculo } from "../../../contexts/CurriculoContext"
+import { useEffect } from "react"
+import { useAuth } from "../../../contexts/AuthContext"
+import { useAlunos } from "../../../contexts/AlunosContext"
 
-export function Curriculo(){
-    return (
-        <Container>
-            <Header>
-                <TitleContainer>
-                    <Title> <ImProfile /> Meu currículo</Title>
-                </TitleContainer>
+export function Curriculo() {
+    const { raAtivo } = useAuth()
+    const { alunos, editAluno } = useAlunos()
+    const { setDados } = useCurriculo()
+    const navigate = useNavigate()
 
-                <BtnBaixar>
-                    Baixar  <GrDocumentPdf />
-                </BtnBaixar>
-            </Header>
+    const alunoAtivo = alunos.find(a => a.ra === raAtivo)
+    const curriculo = alunoAtivo?.curriculo ?? null
 
-            <FormContainer>
-                <Row>
-                    <Input type="text" placeholder="Nome" />
-                    <Input type="text" placeholder="Nome social (opcional)" />
-                </Row>
+    useEffect(() => {
+        if (curriculo) {
+            setDados(curriculo)
+            navigate("/aluno/curriculo/preview", { replace: true })
+        }
+    }, []) 
 
-                <Row>
-                    <Input type="text" placeholder="Telefone" />
-                    <Input type="text" placeholder="Telefone (recado)" />
-                </Row>
+    if (curriculo) return null
 
-                <Row>
-                    <Input type="text" placeholder="Cidade" />
-                    <Input type="text" placeholder="Endereço" />
-                </Row>
+    function handleCriar(data: Record<string, string>) {
+        const novosCurriculo = data as unknown as DadosCurriculo
+        if (alunoAtivo) {
+            editAluno({ ...alunoAtivo, curriculo: novosCurriculo })
+        }
+        setDados(novosCurriculo)
+        navigate("/aluno/curriculo/preview")
+    }
 
-                <Linha />
 
-                <TextArea type="text" placeholder="Objetivo" />
-
-                <TextArea type="text" placeholder="Formação acadêmica" />
-
-                <Linha />
-
-                <Row>
-                    <TituloExp>Experiência profissional</TituloExp>
-                    <CheckboxContainer>
-                        <input type="checkbox" /> Não tenho
-                    </CheckboxContainer>
-                </Row>
-                <TextLongo type="text" placeholder="Empresa"/>
-                <TextLongo type="text" placeholder="Cargo"/>
-                <TextLongo type="text" placeholder="Descrição"/>
-                <Row>
-                    <Input type="text" placeholder="Início"/>
-                    <Input type="text" placeholder="Fim"/>
-                </Row>
-
-                <Linha />
-
-                <TextArea type="text" placeholder="Qualificações e Cursos Complementares" />
-            </FormContainer>
-        </Container>
-    );
+    return <Form role="curriculo" onSubmitExterno={handleCriar} />
 }

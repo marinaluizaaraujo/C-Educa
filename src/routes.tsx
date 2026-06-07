@@ -18,6 +18,8 @@ import CadastroAluno from "./pages/Secretaria/Alunos/CadastroAluno";
 import EditarAluno from "./pages/Secretaria/Alunos/EditarAluno";
 import { Curriculo } from "./pages/Aluno/Curriculo";
 import CadastroProfessor from "./pages/Secretaria/Professores/CadastroProfessor";
+import { CurriculoPreview } from "./pages/Aluno/Curriculo/Preview";
+import { EditarCurriculo } from "./pages/Aluno/EditarCurriculo";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
       {
         path: "curriculo",
         element: <Curriculo />,
+      },
+      {
+        path: "curriculo/preview",
+        element: <CurriculoPreview />,  
+      },
+      {
+        path: "curriculo/editar",
+        element: <EditarCurriculo />,  
       },
     ],
   },

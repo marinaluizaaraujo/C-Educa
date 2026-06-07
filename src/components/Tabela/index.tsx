@@ -1,8 +1,10 @@
 
 import { useNavigate } from "react-router-dom";
 import FiltroBusca from "../FiltroBusca"
-import { Container, EditButton, Espaco, Header, IconeCurriculo, IconeDelete, IconeEditar, Row, Table, TableContainer, Td, Th, TitleContainer, Tr, } from "./style"
+import { Container, EditButton, Espaco, Header, IconeCurriculo, IconeDelete, IconeEditar, Row, Table, TableContainer, Td, TdIcone, Th, TitleContainer, Tr, } from "./style"
 import { useAlunos } from "../../contexts/AlunosContext";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import { CurriculoPDF } from "../CurriculoPDF";
 
 export default function Tabela() {
     const { alunosFiltrados, removeAluno } = useAlunos()
@@ -42,27 +44,35 @@ export default function Tabela() {
                                 <Td>{aluno.curso}</Td>
                                 <Td>{aluno.turno}</Td>
                                 <Td>{aluno.turma}</Td>
-                                <Td>
+                                <TdIcone>
                                     <EditButton onClick={() => navigate("/secretaria/alunos/editar", { state: aluno })}>
                                         <IconeEditar />
                                     </EditButton>
-                                </Td>
-                                <Td>
+                                </TdIcone>
+                                <TdIcone>
                                     <EditButton onClick={() => removeAluno(aluno.ra)}>
                                         <IconeDelete />
                                     </EditButton>
-                                </Td>
-                                <Td>
-                                    <EditButton >
-                                        <IconeCurriculo />
-                                    </EditButton>
-                                </Td>
+                                </TdIcone>
+
+                                <TdIcone>
+                                    {aluno.curriculo
+                                        ? (
+                                            <PDFDownloadLink
+                                                document={<CurriculoPDF dados={aluno.curriculo} />}
+                                                fileName={`curriculo-${aluno.nome.toLowerCase().replace(/\s+/g, "-")}.pdf`}
+                                            >
+                                                {({ loading }) => loading ? "..." : <IconeCurriculo/>}
+                                            </PDFDownloadLink>
+                                        )
+                                        : <span></span>
+                                    }
+                                </TdIcone>
                             </Tr>
                         ))}
                     </tbody>
                 </Table>
             </TableContainer>
         </Container>
-
     )
 }

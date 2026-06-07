@@ -1,5 +1,7 @@
-import { createContext, useContext, useMemo, useReducer, useState } from "react"
+import { createContext, useContext, useEffect, useMemo, useReducer, useState } from "react"
 import { gerarRA } from "../utils/gerarRA"
+import type { DadosCurriculo } from "./CurriculoContext"
+import { alunosMock } from "../mocks/alunosMocks"
 
 export interface Aluno {
     ra: string
@@ -25,6 +27,7 @@ export interface Aluno {
     turma: string
     turno: string
     dataMatricula: string
+    curriculo?: DadosCurriculo
 }
 
 type Action =
@@ -42,8 +45,8 @@ function reducer(state: Aluno[], action: Action): Aluno[] {
 }
 
 interface AlunosContextType {
-    alunos: Aluno[]                         
-    alunosFiltrados: Aluno[]               
+    alunos: Aluno[]
+    alunosFiltrados: Aluno[]
     addAluno: (aluno: Omit<Aluno, "ra">) => void
     editAluno: (aluno: Aluno) => void
     removeAluno: (ra: string) => void
@@ -57,12 +60,31 @@ interface AlunosContextType {
 
 const AlunosContext = createContext({} as AlunosContextType)
 
+const STORAGE_KEY = "educandario:alunos"
+
+function carregarEstadoInicial(): Aluno[] {
+    const salvo = localStorage.getItem(STORAGE_KEY)
+    if (salvo) {
+        try {
+            return JSON.parse(salvo)
+        } catch {
+            return alunosMock
+        }
+    }
+    return alunosMock
+}
+
+
 export function AlunosProvider({ children }: { children: React.ReactNode }) {
-    const [alunos, dispatch] = useReducer(reducer, [])
+    const [alunos, dispatch] = useReducer(reducer, undefined, carregarEstadoInicial)
 
     const [busca, setBusca] = useState("")
     const [cursosSelecionados, setCursosSelecionados] = useState<string[]>([])
     const [turnosSelecionados, setTurnosSelecionados] = useState<string[]>([])
+
+    useEffect(() => {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(alunos))
+    }, [alunos])
 
     const alunosFiltrados = useMemo(() => {
         return alunos.filter(aluno => {
