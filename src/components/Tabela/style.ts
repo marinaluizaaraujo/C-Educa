@@ -81,9 +81,17 @@ export const Td = styled.td`
   font-size: 18px;
 `;
 
+export const TdIcone = styled.td`
+text-align: center;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 18px;
+`;
+
 export const Tr = styled.tr`
+transition: 1s;
   &:hover {
-    background-color: #f9fafb;
+    background-color: ${({ theme }) => theme.colors.backgroundInput};
   }
 `;
 
@@ -128,6 +136,6 @@ export const IconeCurriculo = styled(FileArrowDownIcon)`
   transition: color 0.3s ease;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.linha}; 
+    color: ${({ theme }) => theme.colors.backgroundButton}; 
   }
 `
